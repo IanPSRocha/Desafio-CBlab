@@ -1,0 +1,90 @@
+{
+    "type": "object",
+    "properties": {
+      "curUTC": {"type": "string", "format": "date-time"},
+      "locRef": {"type": "string"},
+      "guestChecks": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "guestCheckId": {"type": "integer"},
+            "chkNum": {"type": "integer"},
+            "opnBusDt": {"type": "string", "format": "date"},
+            "opnUTC": {"type": "string", "format": "date-time"},
+            "opnLcl": {"type": "string", "format": "date-time"},
+            "clsdBusDt": {"type": "string", "format": "date"},
+            "clsdUTC": {"type": "string", "format": "date-time"},
+            "clsdLcl": {"type": "string", "format": "date-time"},
+            "lastTransUTC": {"type": "string", "format": "date-time"},
+            "lastTransLcl": {"type": "string", "format": "date-time"},
+            "lastUpdatedUTC": {"type": "string", "format": "date-time"},
+            "lastUpdatedLcl": {"type": "string", "format": "date-time"},
+            "clsdFlag": {"type": "boolean"},
+            "subTtl": {"type": "number"},
+            "nonTxblSlsTtl": {"type": ["number", "null"]},
+            "chkTtl": {"type": "number"},
+            "dscTtl": {"type": "number"},
+            "payTtl": {"type": "number"},
+            "balDueTtl": {"type": ["number", "null"]},
+            "rvcNum": {"type": "integer"},
+            "otNum": {"type": "integer"},
+            "empNum": {"type": "integer"},
+            "taxes": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "taxNum": {"type": "integer"},
+                  "txblSlsTtl": {"type": "number"},
+                  "taxCollTtl": {"type": "number"},
+                  "taxRate": {"type": "number"},
+                  "type": {"type": "integer"}
+                },
+                "required": ["taxNum", "txblSlsTtl", "taxCollTtl", "taxRate", "type"]
+              }
+            },
+            "detailLines": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "guestCheckLineItemId": {"type": "integer"},
+                  "dtlOtNum": {"type": "integer"},
+                  "lineNum": {"type": "integer"},
+                  "dtlId": {"type": "integer"},
+                  "detailUTC": {"type": "string", "format": "date-time"},
+                  "detailLcl": {"type": "string", "format": "date-time"},
+                  "lastUpdateUTC": {"type": "string", "format": "date-time"},
+                  "lastUpdateLcl": {"type": "string", "format": "date-time"},
+                  "busDt": {"type": "string", "format": "date"},
+                  "wsNum": {"type": "integer"},
+                  "dspTtl": {"type": "number"},
+                  "dspQty": {"type": "integer"},
+                  "aggTtl": {"type": "number"},
+                  "aggQty": {"type": "integer"},
+                  "chkEmpId": {"type": "integer"},
+                  "chkEmpNum": {"type": "integer"},
+                  "svcRndNum": {"type": "integer"},
+                  "menuItem": {
+                    "type": "object",
+                    "properties": {
+                      "miNum": {"type": "integer"},
+                      "inclTax": {"type": "number"},
+                      "activeTaxes": {"type": "string"},
+                      "prcLvl": {"type": "integer"}
+                    },
+                    "required": ["miNum", "inclTax", "activeTaxes", "prcLvl"]
+                  }
+                },
+                "required": ["guestCheckLineItemId", "dtlOtNum", "lineNum", "dtlId", "detailUTC", "detailLcl", "lastUpdateUTC", "lastUpdateLcl", "busDt", "wsNum", "dspTtl", "dspQty", "aggTtl", "aggQty", "chkEmpId", "chkEmpNum", "svcRndNum", "menuItem"]
+              }
+            }
+          },
+          "required": ["guestCheckId", "chkNum", "opnBusDt", "opnUTC", "clsdBusDt", "clsdUTC", "lastTransUTC", "lastUpdatedUTC", "clsdFlag", "subTtl", "chkTtl", "payTtl", "rvcNum", "otNum", "empNum", "taxes", "detailLines"]
+        }
+      }
+    },
+    "required": ["curUTC", "locRef", "guestChecks"]
+  }
+  
